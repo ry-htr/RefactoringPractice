@@ -4,10 +4,6 @@
  */
 package chapter1;
 
-/**
- *
- * @author hattoriryou
- */
 public class Robot {
 
 }
