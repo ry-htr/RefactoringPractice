@@ -1,9 +1,6 @@
 package chapter1;
 
 public class Robot {
-//    public static final RobotCommand COMMAND_WALK = new RobotCommand("WALK");
-//    public static final RobotCommand COMMAND_STOP = new RobotCommand("STOP");
-//    public static final RobotCommand COMMAND_JUMP = new RobotCommand("JUMP");
     private final String _name;
     public enum Command {
         WALK,
