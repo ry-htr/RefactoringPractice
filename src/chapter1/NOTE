@@ -1,0 +1,18 @@
+感想
+確かにマジックナンバーを使うことで、
+可読性は落ちるのでわかりやすい名前に置き換えるのはいい。
+
+定数にしなくていい場合
+　＊配列の長さ
+　　ex:BUFFER_SIZE   → NG
+      buffer.length → OK
+
+その他
+int HOGE = 10;
+int DOUBLE_HOGE = HOGE * 2;
+
+のように、依存関係がある場合は
+式を用いて表現すること。
+
+int DOUBLE_HOGE = 20;
+とかダメ。
