@@ -6,7 +6,6 @@ import java.util.Iterator;
 public class Main {
     public static void main (String[] args) {
         String sCurrentDir = new File(".").getAbsoluteFile().getParent();
-//        System.out.print(sCurrentDir);
         try{
             SimpleDatabase db = new SimpleDatabase(new FileReader(sCurrentDir + "/src/chapter2/simpledatabase/dbfile.txt"));
             Iterator<String> it = db.iterator();
