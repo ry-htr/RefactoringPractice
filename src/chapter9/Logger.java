@@ -4,43 +4,60 @@ public class Logger {
     public static final int STATE_STOPPED = 0;
     public static final int STATE_LOGGING = 1;
 
-    private int _state;
+    private State _state;
 
     public Logger() {
-        _state = STATE_STOPPED;
+        setState(STATE_STOPPED);
+    }
+
+    public int getState() {
+        return _state.getTypeCode();
+    }
+
+    public void setState(int state) {
+        switch (state) {
+            case STATE_STOPPED:
+                _state = new StateStopped();
+                break;
+            case STATE_LOGGING:
+                _state = new StateLogging();
+                break;
+            default:
+                System.out.println("Invalid state: " + state);
+        }
     }
 
     public void start() {
-        switch (_state) {
+        switch (getState()) {
             case STATE_STOPPED:
                 System.out.println("** START LOGGING **");
-                _state = STATE_LOGGING;
+                setState(STATE_LOGGING);
                 break;
             case STATE_LOGGING:
                 /* DO NOTHING */
                 break;
             default:
-                System.out.println("Invalid state: " + _state);
+                System.out.println("Invalid state: " + getState());
         }
     }
 
     public void stop() {
-        switch (_state) {
+        switch (getState()) {
             case STATE_STOPPED:
                 /* DO NOTHING */
                 break;
             case STATE_LOGGING:
                 System.out.println("** STOP LOGGING **");
-                _state = STATE_STOPPED;
+                setState(STATE_STOPPED);
                 break;
             default:
-                System.out.println("Invalid state: " + _state);
+                System.out.println("Invalid state: " + getState());
         }
 
     }
 
     public void log(String info) {
-        switch (_state) {
+        switch (getState()) {
             case STATE_STOPPED:
                 System.out.println("Ignoring: " + info);
                 break;
@@ -48,7 +65,7 @@ public class Logger {
                 System.out.println("Logging: " + info);
                 break;
             default:
-                System.out.println("Invalid state: " + _state);
+                System.out.println("Invalid state: " + getState());
         }
 
     }
